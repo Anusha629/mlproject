@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.parent{
+    min-height: 100vh;
+    width: 100%;
+    background-color:#dce6ff; 
+    display: flex;
+}
+.predict{
+    width: 60%;
+    height: 100vh;
+    /* background-color: aqua; */
+    padding: 7rem 0 0 12rem;
+}
+.result{
+    width: 40%;
+    height: 100vh;
+    padding-top: 39vh;
+    /* background-color: black; */
+}
+h3{
+    display: inline-block;
+    margin-top: 3vh;
+}
+select{
+    outline: none;
+    border:1px solid #AAC4FF;
+    border-radius: 5px;height:4vh ;
+    width: 9vw;
+    margin-top: 3vh;
+}
+.submit{
+    margin:10vh 0 0px 34vh;
+    height:6vh ;
+    width:10vw;
+    border-radius:10px;
+    font-size: 1.4rem;font-weight: 700;
+    background-color: #AAC4FF;
+    border:none;
+    filter: drop-shadow(1px 1px 5px);
+    transition: 200ms;
+}
+.downarrow1{
+    margin-bottom:-14px ;
+    margin-left: 1vw;
+     height:30px;
+     width:35px;
+}
+.downarrow2{
+    margin-bottom:-8px ;
+    margin-left: 0.5vw;
+    height:30px;
+     width:35px;
+}
+.choose{
+    font-size: 2.5rem;
+    margin-bottom: 5vh;
+    margin-left: -5rem;
+}
+h3{
+    font-size: 1.3rem;
+}
+.result-text{
+    font-size: 2.5rem;
+    /* color: azure;  */
+    
+}
+.result-box{
+    height: 25vh;
+    width: 25vw;
+    margin-top: 3vh;
+}
+.result-box h3{
+background-color: white;
+padding: 10px;
+margin-left: 6.0625rem;
+border-radius: 5px;
+}
+@media screen and (max-width: 960px)
+{
+    .parent{
+        flex-direction: column;
+        padding-left: 3vh;
+    }
+    .predict{
+        padding: 0 0 0 0;
+    }
+    h2{
+        font-size: 1.5rem;
+
+    }
+}
+
+</style>
+<body>
+    <div class="parent">
+        <!-- predict details -->
+        <section class="predict">
+            <h2 class="choose">Choose your option <span><img class="downarrow1"  src="{% static 'images\arrow-down.png' %}" alt=""></span></h2>
+            <!-- form -->
+            <form action="result" onsubmit="result()">
+                <h3 style="display:inline-block ;margin-left: 6.9rem;">Qualification:</h3>
+            <select name="qualification" required>
+                <option value="" selected="selected" disabled></option>
+                <option value="1" >Masters</option>
+                <option value="0" >Batchelors</option>
+            </select>
+            <br>
+            <!-- skills and abilities -->
+            <h3 style="margin-left:3.8rem ;">Skills and Abilities:</h3>
+        <select name="abilities" required>
+            <option value="" selected="selected" disabled></option>
+            <option value="2" >Time Management</option>
+            <option value="0" >Analytical Skills</option>
+            <option value="1" >Technical Skills</option>
+        </select>
+        <!-- seniority -->
+        <br>
+        <h3 style="margin-left: 9rem;">Seniority:</h3>
+        <select name="seniority" required>
+            <option value="" selected="selected" disabled></option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+        </select>
+        <!-- work performance -->
+        <br>
+        <h3 style="margin-left: 3.29rem;">Work Performance:</h3>
+        <select name="performance" required>
+            <option value="" selected="selected" disabled></option>
+            <option value="1" >Low</option>
+            <option value="0" >High</option>
+        </select>
+        <!-- no of months -->
+        <br>
+        <h3 style="margin-left:-5.96rem ;">No of Months Since Last Promotion:</h3>
+        <select name="months" required>
+            <option value="" selected="selected" disabled></option>
+            <option value="0" >0</option>
+            <option value="4" >4</option>
+            <option value="6" >6</option>
+        </select>
+        <br>
+        <h3 style="margin-left:-5.49rem ;">Status During The Training Period:</h3>
+        <select name="status" required >
+            <option value="" selected="selected"  disabled></option>
+            <option value="0" >class B</option>
+            <option value="1" >class C</option>
+            <option value="2" >class D</option>
+        </select>
+        <br>
+        <input class="submit"  type="submit" value="Predict" >
+        </section>
+        <!-- result -->
+        <section class="result">
+            <h2 class="result-text">Result <span><img class="downarrow2"  src="{% static 'images\arrow-down.png' %}" alt=""></span></h2>
+<div class="result-box">
+<h3>{{result}}</h3>
+</div>
+        </section>
+
+    </div>
+</body>
+</html>

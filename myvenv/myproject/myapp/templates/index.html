@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            color: azure;
+            font-weight: 900;
+            font-size: 10vh;
+            text-align: center;
+            filter: drop-shadow(1px 3px 6px #000000);
+        }
+        div{
+            height:100vh ;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.156);
+            padding: 8vh 0;
+            font-family:cursive;
+            letter-spacing: .15vh;
+        }
+        .submit{
+            height:16vh;
+            width: 16vh;
+            border-radius: 50%;
+            margin:15vh 0 0 47vw;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background-image: linear-gradient(#345a94, #0b2c4e);
+            /* background-color: #0b2c4e; */
+            color: azure;
+            /* border: 1px solid azure; */
+            filter: drop-shadow(1px 1px 9px black);
+            font-family: cursive;
+            transition: 400ms;
+            text-shadow: 1px 1px 4px black;
+            border: 1px solid #0b2c4e;
+        }
+        .submit:hover{
+            cursor: pointer;
+            height:16.7vh;
+            width: 16.7vh;
+            /* background-image:linear-gradient( #0b2c4e,#244066) ; */
+            background-color: #244066;
+            
+        }
+        
+    </style>
+</head>
+<body style="background-image:url({% static "images\robot-hand-background-presenting-technology-gesture.jpg" %}) ;background-position:center;background-size: cover;background-repeat: no-repeat;">
+    <div >
+    <h1>Employee's level prediction</h1>
+    <form action={% url 'predictor' %}>
+    <input class="submit" type="submit" value="START">
+</form>
+    </div>
+
+</body>
+</html>
